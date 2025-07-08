@@ -77,3 +77,16 @@ h1{
     margin-bottom: 10px;
     color: #00ff55;
 }
+@media (max-width: 400px) {
+  .container {
+    padding: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  #restart {
+    width: 100%;
+  }
+}
