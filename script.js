@@ -12,8 +12,21 @@ let board_array = new Array(9).fill("E");
 //   0.  1.  2.  3.  4.  5.  6.  7.  8
 // ["E","E","E","E","E","E","E","E","E"]
 
+ function showPopup(message) {
+  const popup = document.getElementById('popup');
+  const popupMessage = document.getElementById('popup-message');
+  popupMessage.innerText = message;
+  popup.classList.remove('hidden');
+}
+
+document.getElementById('close-popup').addEventListener('click', () => {
+  document.getElementById('popup').classList.add('hidden');
+});
+
 
 function checkWinner(){
+
+ 
    
     for(let [index0,index1,index2] of winner)
     {
@@ -25,6 +38,9 @@ function checkWinner(){
     return 0;
 
 }
+
+
+
 
 
 
@@ -44,6 +60,7 @@ const printer = (event)=>{
         if(checkWinner())
         {
             document.getElementById('winningMessage').innerHTML = "Winner is O";
+            showPopup(`🎉 Congratulations! Player O wins!`)
             board.removeEventListener('click',printer);
             return;
         }
@@ -56,6 +73,7 @@ const printer = (event)=>{
         if(checkWinner())
         {
             document.getElementById('winningMessage').innerHTML = "Winner is X";
+            showPopup(`🎉 Congratulations! Player X wins!`)
             board.removeEventListener('click',printer);
             return;
         }
@@ -66,6 +84,7 @@ const printer = (event)=>{
     if(total_turn==9)
     {
         document.getElementById('winningMessage').innerHTML = "Match is Draw";
+        showPopup(` Better Luck Next Time!!`)
         board.removeEventListener('click',printer);
     }
 
