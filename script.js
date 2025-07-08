@@ -65,7 +65,7 @@ const printer = (event)=>{
 
     if(total_turn==9)
     {
-        document.getElementById('winningmessage').innerHTML = "Match is Draw";
+        document.getElementById('winningMessage').innerHTML = "Match is Draw";
         board.removeEventListener('click',printer);
     }
 
